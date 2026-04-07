@@ -1,0 +1,48 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #0f172a;
+  color: white;
+  text-align: center;
+  margin: 0;
+}
+
+h1 {
+  margin: 20px;
+}
+
+.container {
+  display: flex;
+  height: 70vh;
+  gap: 10px;
+  padding: 10px;
+}
+
+textarea, #output {
+  width: 50%;
+  padding: 15px;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+  overflow: auto;
+}
+
+textarea {
+  background: #1e293b;
+  color: white;
+}
+
+#output {
+  background: white;
+  color: black;
+  text-align: left;
+}
+
+button {
+  margin: 15px;
+  padding: 10px 20px;
+  border: none;
+  background: #38bdf8;
+  color: black;
+  border-radius: 8px;
+  cursor: pointer;
+}
