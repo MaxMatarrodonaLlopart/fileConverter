@@ -3,20 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <title>Markdown to HTML Converter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <h1>Markdown → HTML</h1>
+  <header class="navbar">
+    <h1>TextTools</h1>
+    <span>Markdown → HTML</span>
+  </header>
 
-  <div class="container">
-    <textarea id="input" placeholder="Escribe Markdown aquí..."></textarea>
-    <div id="output"></div>
-  </div>
+  <main>
+    <div class="editor">
 
-  <button onclick="copyOutput()">Copiar HTML</button>
+      <div class="panel">
+        <div class="panel-header">
+          <span>Markdown</span>
+          <button onclick="clearInput()">Limpiar</button>
+        </div>
+        <textarea id="input"></textarea>
+      </div>
 
-  <!-- Librería Markdown -->
+      <div class="panel">
+        <div class="panel-header">
+          <span>HTML Preview</span>
+          <button onclick="copyOutput()">Copiar</button>
+        </div>
+        <div id="output"></div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>Simple. Fast. Free.</p>
+  </footer>
+
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script src="script.js"></script>
 
