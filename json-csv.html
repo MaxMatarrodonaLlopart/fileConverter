@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Convierte Markdown a HTML en tiempo real. Herramienta gratuita y profesional para desarrolladores.">
+    <meta name="description" content="Convierte JSON a CSV y CSV a JSON. Herramienta gratuita para desarrolladores.">
     <meta name="author" content="TextTools">
-    <title>TextTools</title>
+    <title>JSON a CSV · TextTools</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Navbar -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
@@ -55,34 +54,32 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Convierte Markdown a HTML <span class="gradient">en tiempo real</span></h1>
-            <p>Herramienta profesional para desarrolladores, escritores y creadores de contenido</p>
+            <h1>Convierte JSON a CSV <span class="gradient">y viceversa</span></h1>
+            <p>Herramienta profesional para desarrolladores, analistas de datos y equipos de marketing</p>
             <div class="hero-stats">
                 <div class="stat">
-                    <span class="stat-value">Instantáneo</span>
-                    <span class="stat-label">Conversión en tiempo real</span>
+                    <span class="stat-value">Instantaneo</span>
+                    <span class="stat-label">Conversion en tiempo real</span>
                 </div>
                 <div class="stat">
                     <span class="stat-value">Privado</span>
                     <span class="stat-label">Todo en tu navegador</span>
                 </div>
                 <div class="stat">
-                    <span class="stat-value">Auto-guardado</span>
-                    <span class="stat-label">Nunca pierdas tu trabajo</span>
+                    <span class="stat-value">Estandar</span>
+                    <span class="stat-label">CSV compatible con Excel</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Email Capture Section -->
     <section class="email-capture">
         <div class="email-container">
             <div class="email-content">
-                <h3>Próximas herramientas</h3>
-                <p>Sé el primero en probar <strong>JSON ↔ CSV</strong>, <strong>HTML ↔ Markdown</strong> y más.</p>
+                <h3>Mas herramientas en camino</h3>
+                <p>Se el primero en probar HTML ↔ Markdown, YAML ↔ JSON y mas.</p>
                 <form action="https://buttondown.email/api/emails/embed-subscribe/macs" method="post" target="_blank" class="email-form">
                     <div class="form-group">
                         <input type="email" name="email" id="bd-email" placeholder="tu@email.com" required>
@@ -90,42 +87,39 @@
                             Suscribirme gratis
                         </button>
                     </div>
-                    <p class="form-note">Sin spam · Solo herramientas útiles · Baja en 1 clic</p>
+                    <p class="form-note">Sin spam · Solo herramientas utiles · Baja en 1 clic</p>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- Main Editor -->
     <main class="main-container">
-        <!-- Mode Selector -->
         <div class="mode-selector">
-            <button class="mode-btn active" data-mode="md-to-html">
+            <button class="mode-btn active" data-mode="json-to-csv">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M4 4H20V20H4V4Z"/>
                     <path d="M8 7H16"/>
                     <path d="M8 12H16"/>
                     <path d="M8 17H13"/>
                 </svg>
-                Markdown → HTML
+                JSON → CSV
             </button>
-            <button class="mode-btn" data-mode="html-to-md">
+            <button class="mode-btn" data-mode="csv-to-json">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M4 4H20V20H4V4Z"/>
                     <path d="M9 9L15 15"/>
                     <path d="M15 9L9 15"/>
                 </svg>
-                HTML → Markdown
+                CSV → JSON
             </button>
         </div>
 
         <div class="editor-container">
-            <!-- Panel Izquierdo: Input -->
             <div class="panel panel-left">
                 <div class="panel-header">
                     <div class="panel-title">
                         <span class="dot dot-green"></span>
-                        <span id="inputLabel">Editor Markdown</span>
+                        <span id="inputLabel">Editor JSON</span>
                     </div>
                     <div class="panel-actions">
                         <button class="btn-clear" id="clearBtn">
@@ -137,24 +131,26 @@
                     </div>
                 </div>
                 <div class="panel-content">
-                    <textarea id="inputText" placeholder="# ¡Hola mundo!
-
-    Escribe tu Markdown aquí...
-
-    ## Ejemplos:
-    - **Texto en negrita**
-    - *Texto en cursiva*
-    - [Enlaces](https://ejemplo.com)
-    - `código inline`"></textarea>
+                    <textarea id="inputText" placeholder='[
+  {
+    "nombre": "Ana Garcia",
+    "email": "ana@ejemplo.com",
+    "edad": 30
+  },
+  {
+    "nombre": "Luis Martinez",
+    "email": "luis@ejemplo.com",
+    "edad": 25
+  }
+]'></textarea>
                 </div>
             </div>
 
-            <!-- Panel Derecho: Output -->
             <div class="panel panel-right">
                 <div class="panel-header">
                     <div class="panel-title">
                         <span class="dot dot-blue"></span>
-                        <span id="outputLabel">Preview HTML</span>
+                        <span id="outputLabel">Preview CSV</span>
                     </div>
                     <div class="panel-actions">
                         <button class="btn-copy" id="copyBtn">
@@ -167,33 +163,31 @@
                     </div>
                 </div>
                 <div class="panel-content">
-                    <div id="outputPreview" class="preview-content"></div>
+                    <pre id="outputPreview" class="preview-content" style="font-family: monospace; font-size: 0.875rem; white-space: pre-wrap;"></pre>
                 </div>
             </div>
         </div>
 
-        <!-- Info Bar -->
         <div class="info-bar">
             <div class="info-item">
                 <span class="info-label">Caracteres:</span>
                 <span class="info-value" id="charCount">0</span>
             </div>
             <div class="info-item">
-                <span class="info-label">Palabras:</span>
-                <span class="info-value" id="wordCount">0</span>
-            </div>
-            <div class="info-item">
-                <span class="info-label">Líneas:</span>
+                <span class="info-label">Lineas:</span>
                 <span class="info-value" id="lineCount">0</span>
             </div>
             <div class="info-item">
-                <span class="info-label">Último guardado:</span>
+                <span class="info-label">Filas:</span>
+                <span class="info-value" id="rowCount">0</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Ultimo guardado:</span>
                 <span class="info-value" id="lastSaved">Ahora</span>
             </div>
         </div>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
             <p>© 2024 TextTools · Herramientas gratuitas para la comunidad</p>
@@ -203,10 +197,8 @@
         </div>
     </footer>
 
-    <!-- Toast Notification -->
     <div id="toast" class="toast hidden"></div>
 
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="script.js"></script>
+    <script src="script-json-csv.js"></script>
 </body>
 </html>

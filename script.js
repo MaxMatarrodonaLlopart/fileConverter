@@ -371,8 +371,27 @@ window.addEventListener('beforeunload', () => {
 function init() {
     applyTheme();
     switchMode(currentMode);
+    highlightActiveLink();
     inputText.focus();
 }
 
 // Iniciar app
 init();
+
+// Resaltar link activo en navbar
+function highlightActiveLink() {
+    const currentPath = window.location.pathname;
+    const links = document.querySelectorAll('.nav-link');
+    
+    links.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === currentPath || (currentPath === '/' && href === '/')) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+}
+
+// Llamar a la funcion al cargar en init()
+highlightActiveLink();
