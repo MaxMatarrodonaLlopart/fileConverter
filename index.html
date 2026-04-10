@@ -25,7 +25,7 @@
                 <span>Text<span class="highlight">Tools</span></span>
             </div>
             <div class="tool-badge">
-                <span class="badge">Markdown → HTML</span>
+                <span class="badge">Markdown ↔ HTML</span>
             </div>
             <div class="nav-actions">
                 <button class="btn-icon" id="themeToggle" aria-label="Cambiar tema">
@@ -80,13 +80,34 @@
 
     <!-- Main Editor -->
     <main class="main-container">
+        <!-- Mode Selector -->
+        <div class="mode-selector">
+            <button class="mode-btn active" data-mode="md-to-html">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 4H20V20H4V4Z"/>
+                    <path d="M8 7H16"/>
+                    <path d="M8 12H16"/>
+                    <path d="M8 17H13"/>
+                </svg>
+                Markdown → HTML
+            </button>
+            <button class="mode-btn" data-mode="html-to-md">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 4H20V20H4V4Z"/>
+                    <path d="M9 9L15 15"/>
+                    <path d="M15 9L9 15"/>
+                </svg>
+                HTML → Markdown
+            </button>
+        </div>
+
         <div class="editor-container">
             <!-- Panel Izquierdo: Input -->
             <div class="panel panel-left">
                 <div class="panel-header">
                     <div class="panel-title">
                         <span class="dot dot-green"></span>
-                        <span>Editor Markdown</span>
+                        <span id="inputLabel">Editor Markdown</span>
                     </div>
                     <div class="panel-actions">
                         <button class="btn-clear" id="clearBtn">
@@ -98,20 +119,15 @@
                     </div>
                 </div>
                 <div class="panel-content">
-                    <textarea id="markdownInput" placeholder="# ¡Hola mundo!
+                    <textarea id="inputText" placeholder="# ¡Hola mundo!
 
-Escribe tu Markdown aquí...
+    Escribe tu Markdown aquí...
 
-## Ejemplos:
-- **Texto en negrita**
-- *Texto en cursiva*
-- [Enlaces](https://ejemplo.com)
-- \`código inline\`
-
-\`\`\`javascript
-// Bloques de código
-console.log('Hola');
-\`\`\`"></textarea>
+    ## Ejemplos:
+    - **Texto en negrita**
+    - *Texto en cursiva*
+    - [Enlaces](https://ejemplo.com)
+    - `código inline`"></textarea>
                 </div>
             </div>
 
@@ -120,7 +136,7 @@ console.log('Hola');
                 <div class="panel-header">
                     <div class="panel-title">
                         <span class="dot dot-blue"></span>
-                        <span>Preview HTML</span>
+                        <span id="outputLabel">Preview HTML</span>
                     </div>
                     <div class="panel-actions">
                         <button class="btn-copy" id="copyBtn">
@@ -133,7 +149,7 @@ console.log('Hola');
                     </div>
                 </div>
                 <div class="panel-content">
-                    <div id="htmlPreview" class="preview-content"></div>
+                    <div id="outputPreview" class="preview-content"></div>
                 </div>
             </div>
         </div>
